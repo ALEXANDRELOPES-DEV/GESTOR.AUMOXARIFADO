@@ -72,10 +72,14 @@ table {
   border-spacing: 10px;
   word-break: break-all;
   border-collapse: collapse;
+  border: 2px solid black;
 }
 
 thead {
   background-color: whitesmoke;
+}
+th {
+    border: 2px solid black;
 }
 
 tr {
