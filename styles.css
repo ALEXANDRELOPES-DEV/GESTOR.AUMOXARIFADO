@@ -174,7 +174,6 @@ tbody tr td.acao {
   width: 100%;
   outline: none;
   padding: 5px 10px; 
-  width: 100%;
   margin-bottom: 20px;
   border-top: none;
   border-left: none;
@@ -187,7 +186,6 @@ tbody tr td.acao {
   outline: none;
   border-radius: 20px; 
   padding: 5px 10px; 
-  width: 100%;
   border: none;
   background-color: rgb(57, 57, 226);
   color: white;
