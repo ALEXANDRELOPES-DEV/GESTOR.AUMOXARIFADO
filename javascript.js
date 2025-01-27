@@ -1,8 +1,11 @@
 const modal = document.querySelector('.modal-container')
 const tbody = document.querySelector('tbody')
-const sNome = document.querySelector('#m-numero-moto') // Nº da moto
-const sFuncao = document.querySelector('#m-status-moto') // Status da moto
-const sSalario = document.querySelector('#m-data-problema') // Data do problema
+const sNomeMoto = document.querySelector('#m-numero-moto') // Nº da moto
+const sNomeCondutor = document.querySelector('#m-nome-condutor') // Nome do condutor
+const sStatusMoto = document.querySelector('#m-status-moto') // Status da moto
+const sDataProblema = document.querySelector('#m-data-problema') // Data do problema
+const sKmInicial = document.querySelector('#m-km-inicial') // KM/Inicial
+const sKmProximaTroca = document.querySelector('#m-km-proxima-troca') // KM/Próxima Troca
 const btnSalvar = document.querySelector('#btnSalvar')
 
 let itens
@@ -18,20 +21,24 @@ function openModal(edit = false, index = 0) {
   }
 
   if (edit) {
-    sNome.value = itens[index].numeroMoto
-    sFuncao.value = itens[index].statusMoto
-    sSalario.value = itens[index].dataProblema
+    sNomeMoto.value = itens[index].numeroMoto
+    sNomeCondutor.value = itens[index].nomeCondutor
+    sStatusMoto.value = itens[index].statusMoto
+    sDataProblema.value = itens[index].dataProblema
+    sKmInicial.value = itens[index].kmInicial
+    sKmProximaTroca.value = itens[index].kmProximaTroca
     id = index
   } else {
-    sNome.value = ''
-    sFuncao.value = ''
-    sSalario.value = ''
+    sNomeMoto.value = ''
+    sNomeCondutor.value = ''
+    sStatusMoto.value = ''
+    sDataProblema.value = ''
+    sKmInicial.value = ''
+    sKmProximaTroca.value = ''
   }
-  
 }
 
 function editItem(index) {
-
   openModal(true, index)
 }
 
@@ -41,13 +48,21 @@ function deleteItem(index) {
   loadItens()
 }
 
+function formatDate(date) {
+  const [year, month, day] = date.split('-');
+  return `${day}/${month}/${year}`;
+}
+
 function insertItem(item, index) {
   let tr = document.createElement('tr')
 
   tr.innerHTML = `
     <td>${item.numeroMoto}</td>
+    <td>${item.nomeCondutor}</td>
     <td>${item.statusMoto}</td>
-    <td>${item.dataProblema}</td>
+    <td>${formatDate(item.dataProblema)}</td>
+    <td>${item.kmInicial}</td>
+    <td>${item.kmProximaTroca}</td>
     <td class="acao">
       <button onclick="editItem(${index})"><i class='bx bx-edit' ></i></button>
     </td>
@@ -59,19 +74,30 @@ function insertItem(item, index) {
 }
 
 btnSalvar.onclick = e => {
-  
-  if (sNome.value == '' || sFuncao.value == '' || sSalario.value == '') {
+  if (sNomeMoto.value == '' || sNomeCondutor.value == '' || sStatusMoto.value == '' || sDataProblema.value == '' || sKmInicial.value == '' || sKmProximaTroca.value == '') {
     return
   }
 
   e.preventDefault();
 
+  const dataProblema = sDataProblema.value.split('-').reverse().join('/');
+
   if (id !== undefined) {
-    itens[id].numeroMoto = sNome.value
-    itens[id].statusMoto = sFuncao.value
-    itens[id].dataProblema = sSalario.value
+    itens[id].numeroMoto = sNomeMoto.value
+    itens[id].nomeCondutor = sNomeCondutor.value
+    itens[id].statusMoto = sStatusMoto.value
+    itens[id].dataProblema = dataProblema
+    itens[id].kmInicial = sKmInicial.value
+    itens[id].kmProximaTroca = sKmProximaTroca.value
   } else {
-    itens.push({'numeroMoto': sNome.value, 'statusMoto': sFuncao.value, 'dataProblema': sSalario.value})
+    itens.push({
+      'numeroMoto': sNomeMoto.value,
+      'nomeCondutor': sNomeCondutor.value,
+      'statusMoto': sStatusMoto.value,
+      'dataProblema': dataProblema,
+      'kmInicial': sKmInicial.value,
+      'kmProximaTroca': sKmProximaTroca.value
+    })
   }
 
   setItensBD()
@@ -87,7 +113,6 @@ function loadItens() {
   itens.forEach((item, index) => {
     insertItem(item, index)
   })
-
 }
 
 const getItensBD = () => JSON.parse(localStorage.getItem('dbfunc')) ?? []
