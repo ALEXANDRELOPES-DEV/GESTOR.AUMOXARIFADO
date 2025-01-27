@@ -1,8 +1,8 @@
 const modal = document.querySelector('.modal-container')
 const tbody = document.querySelector('tbody')
-const sNome = document.querySelector('#m-nome')
-const sFuncao = document.querySelector('#m-funcao')
-const sSalario = document.querySelector('#m-salario')
+const sNome = document.querySelector('#m-numero-moto') // Nº da moto
+const sFuncao = document.querySelector('#m-status-moto') // Status da moto
+const sSalario = document.querySelector('#m-data-problema') // Data do problema
 const btnSalvar = document.querySelector('#btnSalvar')
 
 let itens
@@ -18,9 +18,9 @@ function openModal(edit = false, index = 0) {
   }
 
   if (edit) {
-    sNome.value = itens[index].nome
-    sFuncao.value = itens[index].funcao
-    sSalario.value = itens[index].salario
+    sNome.value = itens[index].numeroMoto
+    sFuncao.value = itens[index].statusMoto
+    sSalario.value = itens[index].dataProblema
     id = index
   } else {
     sNome.value = ''
@@ -45,9 +45,9 @@ function insertItem(item, index) {
   let tr = document.createElement('tr')
 
   tr.innerHTML = `
-    <td>${item.nome}</td>
-    <td>${item.funcao}</td>
-    <td>R$ ${item.salario}</td>
+    <td>${item.numeroMoto}</td>
+    <td>${item.statusMoto}</td>
+    <td>${item.dataProblema}</td>
     <td class="acao">
       <button onclick="editItem(${index})"><i class='bx bx-edit' ></i></button>
     </td>
@@ -67,11 +67,11 @@ btnSalvar.onclick = e => {
   e.preventDefault();
 
   if (id !== undefined) {
-    itens[id].nome = sNome.value
-    itens[id].funcao = sFuncao.value
-    itens[id].salario = sSalario.value
+    itens[id].numeroMoto = sNome.value
+    itens[id].statusMoto = sFuncao.value
+    itens[id].dataProblema = sSalario.value
   } else {
-    itens.push({'nome': sNome.value, 'funcao': sFuncao.value, 'salario': sSalario.value})
+    itens.push({'numeroMoto': sNome.value, 'statusMoto': sFuncao.value, 'dataProblema': sSalario.value})
   }
 
   setItensBD()
