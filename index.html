@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
@@ -13,8 +13,8 @@
 <body>
   <div class="container">
     <div class="header">
-      <span>Cadastro de Carros</span>
-      <button onclick="openModal()" id="new">Incluir</i></button>
+      <span>Cadastro de Motos</span>
+      <button onclick="openModal()" id="new">Incluir</button>
     </div>
 
     <div class="divTable">
@@ -36,14 +36,14 @@
     <div class="modal-container">
       <div class="modal">
         <form>
-          <label for="m-Nº da moto">Nº da moto</label>
-          <input id="m-Nº da moto" type="text" required />
+          <label for="m-numero-moto">Nº da moto</label>
+          <input id="m-numero-moto" type="text" required />
   
-          <label for="m-Satus da moto">Satus da moto</label>
-          <input id="m-Satus da moto" type="text" required />
+          <label for="m-status-moto">Status da moto</label>
+          <input id="m-status-moto" type="text" required />
   
-          <label for="m-Data do problema">Data do problema</label>
-          <input id="m-Data do problema" type="number" required />
+          <label for="m-data-problema">Data do problema</label>
+          <input id="m-data-problema" type="date" required />
           <button id="btnSalvar">Salvar</button>
         </form>
       </div>
