@@ -22,8 +22,11 @@
         <thead>
           <tr>
             <th>Nº da moto</th>
+            <th>Nome do condutor</th>
             <th>Status da moto</th>
             <th>Data do problema</th>
+            <th>KM/Inicial</th>
+            <th>KM/Próxima Troca</th>
             <th class="acao">Editar</th>
             <th class="acao">Excluir</th>
           </tr>
@@ -38,19 +41,29 @@
         <form>
           <label for="m-numero-moto">Nº da moto</label>
           <input id="m-numero-moto" type="text" required />
+
+          <label for="m-nome-condutor">Nome do condutor</label>
+          <input id="m-nome-condutor" type="text" required />
   
           <label for="m-status-moto">Status da moto</label>
           <input id="m-status-moto" type="text" required />
   
           <label for="m-data-problema">Data do problema</label>
           <input id="m-data-problema" type="date" required />
+
+          <label for="m-km-inicial">KM/Inicial</label>
+          <input id="m-km-inicial" type="number" required />
+
+          <label for="m-km-proxima-troca">KM/Próxima Troca</label>
+          <input id="m-km-proxima-troca" type="number" required />
+
           <button id="btnSalvar">Salvar</button>
         </form>
       </div>
     </div>
 
   </div>
-  <script src="javascript.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
