@@ -24,7 +24,7 @@ function openModal(edit = false, index = 0) {
     sNomeMoto.value = itens[index].numeroMoto
     sNomeCondutor.value = itens[index].nomeCondutor
     sStatusMoto.value = itens[index].statusMoto
-    sDataProblema.value = itens[index].dataProblema
+    sDataProblema.value = itens[index].dataProblema.split('/').reverse().join('-') // Converte para AAAA-MM-DD
     sKmInicial.value = itens[index].kmInicial
     sKmProximaTroca.value = itens[index].kmProximaTroca
     id = index
@@ -60,7 +60,7 @@ function insertItem(item, index) {
     <td>${item.numeroMoto}</td>
     <td>${item.nomeCondutor}</td>
     <td>${item.statusMoto}</td>
-    <td>${formatDate(item.dataProblema)}</td>
+    <td>${item.dataProblema}</td>
     <td>${item.kmInicial}</td>
     <td>${item.kmProximaTroca}</td>
     <td class="acao">

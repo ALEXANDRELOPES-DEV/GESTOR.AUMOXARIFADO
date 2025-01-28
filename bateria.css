@@ -62,7 +62,7 @@ button {
   width: 90%;
   height: 80%;
   border-radius: 10px;
-  background: white;
+  background: rgb(39, 167, 145);
   margin-top: 60px; /* Ajuste para evitar sobreposição do nav */
 }
 
