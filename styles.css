@@ -16,9 +16,8 @@ body {
   background-color: rgba(0,0,0,0.1);
   flex-direction: column; /* Alinhamento vertical para incluir o nav */
   position: relative;
-background-size: cover;
+  background-size: cover;
   background-repeat: no-repeat;
-
   background-image: url(fundo2.jpg);
 }
 
@@ -29,6 +28,7 @@ header {
   top: 0;
   left: 0;
 }
+
 img {
   width: 7rem;
   margin: 115px; /* Ajustado para reduzir o espaçamento */
@@ -41,12 +41,11 @@ img {
   border-radius: 50%; /* Garantir borda redonda */
 }
 
-
 header .GPS {
   text-align: left;
   padding-left: 20px;
 }
-  
+
 header .GPS .btn-gps {
   color: white;
   font-weight: 500;
@@ -67,26 +66,26 @@ header .GPS .btn-gps {
   border-radius: 1rem;
   box-shadow: 0px 0px 10px #00ff08d3;
 }
+
 .GPS:hover {
   transform: scale(1.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 header .GPS .btn-gps:hover {
   background-color: #0056b3;
-   
 }
 
 a {
   color: rgb(0, 0, 0);
-  border: 3px solid back;
+  border: 3px solid black;
   background: rgb(red, green, blue);
-  
 }
+
 button {
   cursor: pointer;
 }
-  
+
 .container {
   width: 90%;
   height: 80%;
@@ -161,12 +160,14 @@ tbody tr td {
   max-width: 50px;
   border: 3px solid black;
   text-align: center;
+  white-space: nowrap; /* Garante que o texto não quebre */
 }
 
 thead tr th {
   padding: 5px;
   text-align: center;
   margin-bottom: 50px;
+  white-space: nowrap; /* Garante que o texto não quebre */
 }
 
 tbody tr {
