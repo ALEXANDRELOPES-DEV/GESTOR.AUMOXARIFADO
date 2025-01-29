@@ -16,10 +16,6 @@ body {
   background-color: rgba(0,0,0,0.1);
   flex-direction: column; /* Alinhamento vertical para incluir o nav */
   position: relative;
-background-size: cover;
-  background-repeat: no-repeat;
-
-  background-image: url(fundo2.jpg);
 }
 
 header {
@@ -29,64 +25,39 @@ header {
   top: 0;
   left: 0;
 }
-img {
-  width: 7rem;
-  margin: 115px; /* Ajustado para reduzir o espaçamento */
-  padding: 0px; /* Ajustado o padding para centrar melhor */
-  position: absolute;
-  top: 10px; /* Ajustar conforme necessário */
-  left: 10px; /* Ajustar conforme necessário */
-  display: flex;
-  border: 3px solid black;
-  border-radius: 50%; /* Garantir borda redonda */
-}
-
 
 header .GPS {
   text-align: left;
   padding-left: 20px;
 }
-  
+
 header .GPS .btn-gps {
   color: white;
   font-weight: 500;
   font-size: 18px;
+  text-decoration: none; /* Remove o sublinhado */
   background-color: #007BFF;
   padding: 10px 15px;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
-  
+
 .GPS {
-  margin-top: 150px;
-  width: auto;
-  height: 50px;
-  padding: 2px 20px;
-  font-size: 1.5rem;
-  background: #00ff08d3;
-  border-radius: 1rem;
-  box-shadow: 0px 0px 10px #00ff08d3;
-}
-.GPS:hover {
-  transform: scale(1.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  padding: 10px;
+  color: black;
+  background-color: rgb(45, 211, 111);
+  border-radius: 10px;
+  border: 2px solid black;
 }
 
 header .GPS .btn-gps:hover {
   background-color: #0056b3;
-   
 }
 
-a {
-  color: rgb(0, 0, 0);
-  border: 3px solid back;
-  background: rgb(red, green, blue);
-  
-}
 button {
   cursor: pointer;
 }
-  
+
 .container {
   width: 90%;
   height: 80%;
@@ -102,13 +73,13 @@ button {
   justify-content: space-between;
   margin: auto 12px;
 }
-  
+
 .header span {
   font-weight: 900;
   font-size: 20px;
   word-break: break-all;
 }
-  
+
 #new {
   font-size: 16px;
   padding: 8px;
@@ -120,19 +91,19 @@ button {
 
 .divTable {
   padding: 10px;
-  width: auto; 
-  height: inherit; 
+  width: auto;
+  height: inherit;
   overflow: auto;
 }
 
 .divTable::-webkit-scrollbar {
   width: 12px;
-  background-color: whitesmoke; 
+  background-color: whitesmoke;
 }
 
 .divTable::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: darkgray; 
+  background-color: darkgray;
 }
 
 table {
@@ -140,7 +111,7 @@ table {
   border-spacing: 10px;
   word-break: break-all;
   border-collapse: collapse;
-  border: 3px solid black;
+  border: none;
 }
 
 thead {
@@ -159,8 +130,9 @@ tbody tr td {
   vertical-align: text-top;
   padding: 6px;
   max-width: 50px;
-  border: 3px solid black;
+  border: 3px solid rgb(255, 255, 255);
   text-align: center;
+  white-space: nowrap;  /* Impede a quebra de linha */
 }
 
 thead tr th {
@@ -186,7 +158,7 @@ tbody tr td.acao {
   body {
     font-size: 10px;
   }
-  
+
   .header span {
     font-size: 15px;
   }
@@ -199,7 +171,7 @@ tbody tr td.acao {
   thead tr th.acao {
     width: auto!important;
   }
-  
+
   td button i {
     font-size: 20px!important;
   }
@@ -248,7 +220,7 @@ tbody tr td.acao {
 .modal input {
   width: 100%;
   outline: none;
-  padding: 5px 10px; 
+  padding: 5px 10px;
   margin-bottom: 20px;
   border-top: none;
   border-left: none;
@@ -259,8 +231,8 @@ tbody tr td.acao {
   width: 100%;
   margin: 10px auto;
   outline: none;
-  border-radius: 20px; 
-  padding: 5px 10px; 
+  border-radius: 20px;
+  padding: 5px 10px;
   border: none;
   background-color: rgb(57, 57, 226);
   color: white;
@@ -271,7 +243,7 @@ tbody tr td.acao {
 }
 
 .active .modal {
-  animation: modal 0.4s;
+  animation: modal .4s;
 }
 
 @keyframes modal {
@@ -298,34 +270,37 @@ td button i {
 td button i:first-child {
   margin-right: 10px;
 }
+
 @media (max-width: 600px) {
-    table, thead, tbody, th, td, tr {
-        display: block;
-    }
-    th {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-    tr {
-        border: 1px solid #ccc;
-        margin-bottom: 5px;
-        padding: 10px;
-        border-radius: 4px;
-    }
-    td {
-        border: none;
-        border-bottom: 1px solid #eee;
-        position: relative;
-        padding-left: 50%;
-    }
-    td:before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        width: 45%;
-        padding-right: 10px;
-        font-weight: bold;
-        color: #666;
-    }
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  th {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  tr {
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+    white-space: nowrap;  /* Impede a quebra de linha */
+  }
+  td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    padding-right: 10px;
+    font-weight: bold;
+    color: #666;
+    white-space: nowrap;  /* Impede a quebra de linha */
+  }
 }
